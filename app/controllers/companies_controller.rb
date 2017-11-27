@@ -44,8 +44,7 @@ class CompaniesController < ApplicationController
     company = Company.find(params[:id])
     @comment = company.comments.create!(comment_params.merge(company: company))
     respond_to do |format|
-      format.html
-      format.json
+      format.js { render 'create_comment'}
     end
   end
 

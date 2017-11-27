@@ -14,7 +14,7 @@
       </div>
     <% end %>
 
-    <%= form_for Comment.new, :url => create_comment_company_path(company) do |f| %>
+    <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
 
