@@ -1,30 +1,36 @@
 <h1><%= @company.name %></h1>
-<h1><a target="_blank" href="<%=@company.website%>"><%= @company.website %> </a></h1>
-<h1><%= @company.phone_number %></h1>
+<h2><a target="_blank" href="<%=@company.website%>"><%= @company.website %> </a></h2>
+<h2><%= @company.phone_number %></h2>
 
 <% if can? :update, @company %>
 
-  <%= form_for @company, remote: true do |f| %>
+  <%= form_for @company, :html => {:id => "company-show-bio", :class => "form-group"}, remote: true do |f| %>
     <%= f.text_area :bio %>
-    <%= f.submit %>
+    <%= f.submit "update", :html => {:class => 'btn btn-light'} %>
   <% end %>
 
-  <p>Edit Description</p>
+  <button id="company-show-edit-description" value="false" type="button" class="btn btn-light">Edit Description</button>
 <% else %>
   <p><%= @company.bio %></p>
 <% end %>
 
-<p>Accepts Credit Cards</p>
+
+
+<h2>Credit Cards</h2>
 <% if @company.credit_card %>
-  <p>Yes</p>
+  <div class="alert alert-success" role="alert">
+    YES
+  </div>
   <% else %>
-  <p>No</p>
+  <div class="alert alert-danger" role="alert">
+    NO
+  </div>
 <% end %>
 
 
 
 <% if can? :update, @company %>
-  <p>Trucks</p>
+  <h2>Trucks</h2>
   <% @trucks.each do |truck| %>
     <p>
       <%= truck.name %>

@@ -1,11 +1,1 @@
-<h1>Companies</h1>
-
-<% if current_user %>
-  <h1>
-    <%= link_to "(+)", new_company_path%>
-  </h1>
-<% end %>
-
-<% @companies.each do |company| %>
-  <p><%= link_to company.name, company_path(company) %> </p>
-<% end %>
+<%= render :partial => "sidebar", :locals => {:companies => @companies} %>
