@@ -8,8 +8,8 @@
 
 .company-holder{
   height: 100%;
-  display: grid;
-  grid-template-rows: auto 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 .company-holder-info-bio{
@@ -42,7 +42,7 @@
 //Comments
 
 .company-comments-holder{
-  margin: 4% 30% 4% 30%;
+  margin: 2% 30% 4% 30%;
   flex-direction: column;
 }
 

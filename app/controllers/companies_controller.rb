@@ -40,8 +40,17 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
+  def create_comment
+    @company = Company.find(params[:id])
+    @comment = @company.comments.create!(name: "Kevin", body: "hey guys")
+  end
+
   private
   def company_params
     params.require(:company).permit(:name, :website, :profile_img, :phone_number, :bio)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:name, :body)
   end
 end

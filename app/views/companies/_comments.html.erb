@@ -1,0 +1,21 @@
+<div class="collapse" id="collapse_comments">
+  <div class="company-comment-holder">
+    <% comments.each do |comment| %>
+      <div class="company-comment-holder">
+        <% if comment.name.empty? %>
+            <p id="comment-name-empty" class="comment-name">anonymous</p>
+        <% else %>
+          <p id="comment-name" class="comment-name">
+            <%= comment.name %>
+          </p>
+        <% end %>
+        <p id="comment-body" class="comment-body"> <%= comment.body %> </p>
+        <p id="comment-date" class="comment-date"> <%= comment.created_at %> </p>
+      </div>
+    <% end %>
+
+    <%= link_to "comment", create_comment_company_path(company), method: :post, remote: true %>
+
+    <button type="button" class="btn btn-light">+</button>
+  </div>
+</div>
