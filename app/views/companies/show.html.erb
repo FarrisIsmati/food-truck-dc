@@ -1,0 +1,37 @@
+<h1><%= @company.name %></h1>
+<h1><a target="_blank" href="<%=@company.website%>"><%= @company.website %> </a></h1>
+<h1><%= @company.phone_number %></h1>
+
+<% if can? :update, @company %>
+
+  <%= form_for @company, remote: true do |f| %>
+    <%= f.text_area :bio %>
+    <%= f.submit %>
+  <% end %>
+
+  <p>Edit Description</p>
+<% else %>
+  <p><%= @company.bio %></p>
+<% end %>
+
+<p>Accepts Credit Cards</p>
+<% if @company.credit_card %>
+  <p>Yes</p>
+  <% else %>
+  <p>No</p>
+<% end %>
+
+
+
+<% if can? :update, @company %>
+  <p>Trucks</p>
+  <% @trucks.each do |truck| %>
+    <p>
+      <%= truck.name %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= link_to "Edit Profile", edit_company_path(@company) %>
+  </p>
+<% end %>
