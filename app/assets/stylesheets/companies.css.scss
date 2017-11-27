@@ -1,16 +1,36 @@
 .companies-holder{
   display: grid;
   grid-template-columns: auto 20%;
+
+  a{
+    color: black !important;
+    transition: color .5 ease-in;
+    &:hover{
+      color:#9E9E9E !important;
+      cursor: pointer;
+      transition: color .5 ease-in;
+    }
+  }
 }
 
 .companies-map-holder{
 
 }
 
+//sidebar
+
+#trucks-title{
+  margin: 0;
+}
+
 .companies-sidebar-holder{
   flex-direction: column;
+}
 
-  a{
-    color: red;
-  }
+.companies-create-btn{
+  margin-bottom: 5px;
+}
+
+.companies-truck-btn{
+  margin: 2px 0 2px 0;
 }

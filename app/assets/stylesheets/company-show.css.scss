@@ -7,8 +7,9 @@
 //Company Info
 
 .company-holder{
+  height: 100%;
   display: grid;
-  grid-template-rows: auto 20%;
+  grid-template-rows: auto 10%;
 }
 
 .company-holder-info-bio{

@@ -1,9 +1,9 @@
-<div class="company-show-holder page-margin">
+<div class="company-show-holder ">
   <div class="map-holder">
     map
   </div>
 
-  <div class="company-holder">
+  <div class="company-holder page-margin">
     <div class="company-holder-info-bio">
       <div class="company-info-holder">
         <h1>
@@ -19,16 +19,16 @@
         </h2>
 
         <div class="company-credit-card-holder">
-          <h2>Credit Card</h2>
+          <h2>Credit Card:</h2>
 
           <% if @company.credit_card %>
-            <div class="alert alert-success" role="alert">
-              YES
-            </div>
+            <h2 class="letter-good">
+              Yes
+            </h2>
             <% else %>
-            <div class="alert alert-danger" role="alert">
-              NO
-            </div>
+            <h2 class="letter-bad">
+              No
+            </h2>
           <% end %>
         </div>
 

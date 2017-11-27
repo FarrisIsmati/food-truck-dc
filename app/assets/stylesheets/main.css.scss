@@ -23,18 +23,38 @@ body, html{
 }
 
 .page-margin{
-  height: 100%;
   margin: 0 20% 0 20%;
 }
 
 p{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   margin: 0;
+  font-size: 1em;
+}
+
+a{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-decoration: none !important;
 }
 
 h1{
-  font-size: 2em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
 }
 
 h2{
-  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.letter-good{
+  color: #00b33c;
+}
+
+.letter-bad{
+  color: #b30000;
 }

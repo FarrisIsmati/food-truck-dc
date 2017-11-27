@@ -1,11 +1,13 @@
-<h1>Trucks</h1>
+<h1 id="trucks-title">Trucks</h1>
 
 <% if current_user %>
-  <h1>
-    <%= link_to "(+)", new_company_path%>
-  </h1>
+  <p class="companies-create-btn">
+    <%= link_to "(+)", new_company_path  %>
+  <p>
 <% end %>
 
 <% companies.each do |company| %>
-  <%= link_to company.name, company_path(company) %>
+  <h2 class="companies-truck-btn">
+      <%= link_to company.name, company_path(company) %>
+  </h2>
 <% end %>
