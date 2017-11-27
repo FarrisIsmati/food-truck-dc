@@ -41,8 +41,8 @@ class CompaniesController < ApplicationController
   end
 
   def create_comment
-    @company = Company.find(params[:id])
-    @comment = @company.comments.create!(name: "Kevin", body: "hey guys")
+    company = Company.find(params[:id])
+    @comment = company.comments.create!()
   end
 
   private

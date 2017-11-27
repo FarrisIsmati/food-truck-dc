@@ -1,7 +1,7 @@
-<% if comment.name.empty? %>
-  $('#comment-name').text("so")
+<% if @comment.name.empty? %>
+  $('#comment-holder').append( "<p class='comment-name'>anonymous</p>" )
 <% else %>
-  $('#comment-name-empty').text("anonymous")
+  $('#comment-holder').append( "<p class='comment-name'><%= @comment.name %></p>" )
 <% end %>
-$('#comment-body').text("HEYY")
-$('#comment-date').text("WOAH")
+$('#comment-holder').append( "<p class='comment-body'><%= @comment.body %></p>" )
+$('#comment-holder').append( "<p class='comment-date'><%= @comment.created_at %></p>" )

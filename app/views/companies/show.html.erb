@@ -33,27 +33,27 @@
         </div>
 
         <% if can? :update, @company %>
-          <h2>Trucks</h2>
-          <% @trucks.each do |truck| %>
-            <p>
-              <%= truck.name %>
-            </p>
-          <% end %>
-
-          <p>
-            <%= link_to "Edit Profile", edit_company_path(@company) %>
-          </p>
+          <h2>
+            <%= link_to 'edit profile', edit_company_path(@company) %>
+          </h2>
         <% end %>
-        </div>
+      </div>
 
         <div class="company-bio-holder">
-          <% if can? :update, @company %>
-            <%= render :partial => "bio-form", :locals => {:company => @company} %>
-          <% else %>
-            <%= render :partial => "bio-regular", :locals => {:company => @company} %>
-          <% end %>
+          <%= render :partial => "bio-regular", :locals => {:company => @company} %>
         </div>
     </div>
+
+    <% if can? :update, @company %>
+      <div class="company-trucks-holder flex-center">
+      <h2>Trucks</h2>
+      <% @trucks.each do |truck| %>
+        <p>
+          <%= truck.name %>
+        </p>
+      <% end %>
+      </div>
+    <% end %>
 
     <div class="company-comments-holder flex-center">
       <h2>
