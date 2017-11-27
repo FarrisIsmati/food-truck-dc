@@ -1,32 +1,31 @@
 <div class="collapse" id="collapse_comments">
   <div class="company-comment-holder">
-    <% comments.each do |comment| %>
-      <div id="comment-holder" class="company-comment-holder">
-        <% if comment.name.empty? %>
-            <p class="comment-name">anonymous</p>
-        <% else %>
-          <p class="comment-name">
-            <%= comment.name %>
-          </p>
-        <% end %>
-        <p class="comment-body"> <%= comment.body %> </p>
-        <p class="comment-date"> <%= comment.created_at %> </p>
-      </div>
-    <% end %>
-
-    <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-
-      <%= f.submit "+", :class => "btn btn-light" %>
-    <% end %>
-
+    <div id="comment-holder">
+      <% comments.each do |comment| %>
+        <div class="company-comment-holder">
+          <% if comment.name.empty? %>
+              <p class="comment-name">anonymous</p>
+          <% else %>
+            <p class="comment-name">
+              <%= comment.name %>
+            </p>
+          <% end %>
+          <p class="comment-body"> <%= comment.body %> </p>
+          <p class="comment-date"> <%= comment.created_at %> </p>
+        </div>
+      <% end %>
+    </div>
 
     <% if cannot? :update, company %>
-      <%= link_to "+", create_comment_company_path(company), method: :post, remote: true, data: {disable_with: "..."}, class: "btn btn-light"%>
+      <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form'} do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :body %>
+        <%= f.text_area :body, :class => "textarea", :rows => "3", :cols => "20"%>
+
+        <%= f.submit "Add ", :class => "btn btn-light", data: {disable_with: "..."},:id => 'company-comment-add-btn' %>
+      <% end %>
     <% end %>
   </div>
 </div>
