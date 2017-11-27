@@ -42,7 +42,11 @@ class CompaniesController < ApplicationController
 
   def create_comment
     company = Company.find(params[:id])
-    @comment = company.comments.create!()
+    @comment = company.comments.create!(comment_params.merge(company: company))
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

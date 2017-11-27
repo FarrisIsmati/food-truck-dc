@@ -37,6 +37,11 @@
             <%= link_to 'edit profile', edit_company_path(@company) %>
           </h2>
         <% end %>
+        <% if can? :destroy, @company %>
+            <h2>
+              <%= link_to "delete profile", company_path(@company), method: :delete %>
+            </h2>
+        <% end %>
       </div>
 
         <div class="company-bio-holder">

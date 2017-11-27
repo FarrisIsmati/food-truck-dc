@@ -14,6 +14,17 @@
       </div>
     <% end %>
 
+    <%= form_for Comment.new, :url => create_comment_company_path(company) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+
+      <%= f.submit "+", :class => "btn btn-light" %>
+    <% end %>
+
+
     <% if cannot? :update, company %>
       <%= link_to "+", create_comment_company_path(company), method: :post, remote: true, data: {disable_with: "..."}, class: "btn btn-light"%>
     <% end %>
