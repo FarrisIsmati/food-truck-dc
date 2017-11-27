@@ -1,0 +1,16 @@
+.companies-holder{
+  display: grid;
+  grid-template-columns: auto 20%;
+}
+
+.companies-map-holder{
+
+}
+
+.companies-sidebar-holder{
+  flex-direction: column;
+
+  a{
+    color: red;
+  }
+}

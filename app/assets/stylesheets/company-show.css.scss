@@ -1,0 +1,65 @@
+.company-show-holder{
+  height: 100%;
+  display: grid;
+  grid-template-rows: 40% auto;
+}
+
+//Company Info
+
+.company-holder{
+  display: grid;
+  grid-template-rows: auto 20%;
+}
+
+.company-holder-info-bio{
+  display: grid;
+  grid-template-columns: 30% auto;
+}
+
+.company-info-holder{
+  margin: 4%;
+}
+
+.company-credit-card-holder{
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+
+  div{
+    margin: 0;
+  }
+
+  h2{
+    margin-right: 2%;
+  }
+}
+
+.company-bio-holder{
+  margin: 4%;
+}
+
+//Comments
+
+.company-comments-holder{
+  margin: 4% 30% 4% 30%;
+  flex-direction: column;
+}
+
+.company-comment-holder{
+  text-align: center;
+  flex-direction: column;
+  margin: 2% 0 2% 0;
+}
+
+.comment-name{
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.comment-body{
+  font-size: .9em;
+}
+
+.comment-date{
+  font-size: .7em;
+}

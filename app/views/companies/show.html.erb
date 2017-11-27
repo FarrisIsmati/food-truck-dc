@@ -1,43 +1,83 @@
-<h1><%= @company.name %></h1>
-<h2><a target="_blank" href="<%=@company.website%>"><%= @company.website %> </a></h2>
-<h2><%= @company.phone_number %></h2>
-
-<% if can? :update, @company %>
-
-  <%= form_for @company, :html => {:id => "company-show-bio", :class => "form-group"}, remote: true do |f| %>
-    <%= f.text_area :bio %>
-    <%= f.submit "update", :html => {:class => 'btn btn-light'} %>
-  <% end %>
-
-  <button id="company-show-edit-description" value="false" type="button" class="btn btn-light">Edit Description</button>
-<% else %>
-  <p><%= @company.bio %></p>
-<% end %>
-
-
-
-<h2>Credit Cards</h2>
-<% if @company.credit_card %>
-  <div class="alert alert-success" role="alert">
-    YES
+<div class="company-show-holder page-margin">
+  <div class="map-holder">
+    map
   </div>
-  <% else %>
-  <div class="alert alert-danger" role="alert">
-    NO
+
+  <div class="company-holder">
+    <div class="company-holder-info-bio">
+      <div class="company-info-holder">
+        <h1>
+          <%= @company.name %>
+        </h1>
+        <h2>
+          <a target="_blank" href="<%=@company.website%>">
+            website
+          </a>
+        </h2>
+        <h2>
+          <%= @company.phone_number %>
+        </h2>
+
+        <div class="company-credit-card-holder">
+          <h2>Credit Card</h2>
+
+          <% if @company.credit_card %>
+            <div class="alert alert-success" role="alert">
+              YES
+            </div>
+            <% else %>
+            <div class="alert alert-danger" role="alert">
+              NO
+            </div>
+          <% end %>
+        </div>
+
+        <% if can? :update, @company %>
+          <h2>Trucks</h2>
+          <% @trucks.each do |truck| %>
+            <p>
+              <%= truck.name %>
+            </p>
+          <% end %>
+
+          <p>
+            <%= link_to "Edit Profile", edit_company_path(@company) %>
+          </p>
+        <% end %>
+        </div>
+
+        <div class="company-bio-holder">
+          <% if can? :update, @company %>
+            <%= render :partial => "bio-form", :locals => {:company => @company} %>
+          <% else %>
+            <%= render :partial => "bio-regular", :locals => {:company => @company} %>
+          <% end %>
+        </div>
+    </div>
+
+    <div class="company-comments-holder flex-center">
+      <h2>
+        <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse_comments" aria-expanded="false" aria-controls="collapseExample">
+          Comments
+        </button>
+      </h2>
+
+      <div class="collapse" id="collapse_comments">
+        <% @comments.each do |comment| %>
+          <div class="company-comment-holder">
+            <% if comment.name.empty? %>
+                <p class="comment-name">anonymous</p>
+            <% else %>
+              <p class="comment-name">
+                <%= comment.name %>
+              </p>
+            <% end %>
+            <p class="comment-body"> <%= comment.body %> </p>
+            <p class="comment-date"> <%= comment.created_at %> </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
 
-
-
-<% if can? :update, @company %>
-  <h2>Trucks</h2>
-  <% @trucks.each do |truck| %>
-    <p>
-      <%= truck.name %>
-    </p>
-  <% end %>
-
-  <p>
-    <%= link_to "Edit Profile", edit_company_path(@company) %>
-  </p>
-<% end %>
+</div>

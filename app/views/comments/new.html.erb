@@ -1,0 +1,10 @@
+<h2>Create Comment</h2>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FoodTruckDc</title>
+    <title>DC Food Truck</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,7 @@
       <p class="notice notification"><%= notice %></p>
       <p class="alert notification"><%= alert %></p>
 
-      <h1 class="header-title noselect">DC Food Truck Tracker</h1>
+      <h1 class="header-title noselect">DC Food Trucks</h1>
 
       <div class="header-user">
         <% if !current_user %>
@@ -30,6 +30,8 @@
       </div>
     </div>
 
-    <%= yield %>
+    <div class="main-app">
+      <%= yield %>
+    </div>
   </body>
 </html>
