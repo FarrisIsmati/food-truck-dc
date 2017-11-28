@@ -1,0 +1,19 @@
+<div class="company-trucks-holder flex-center-column">
+  <div id="trucks-holder">
+    <% trucks.each do |truck| %>
+      <p>
+        <%= truck.name %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= form_for Truck.new, :url => create_truck_company_path(company), remote: true, :html => {:class => 'company-form'} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <%= f.submit "+", :class => "btn btn-light", data: {disable_with: "..."},:id => 'truck-add-btn' %>
+  <% end %>
+</div>

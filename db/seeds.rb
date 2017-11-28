@@ -9,6 +9,12 @@ user1 = User.create({
   admin: false
 })
 
+user2 = User.create({
+  email: "user2@gmail.com",
+  password: "password",
+  admin: false
+})
+
 company1 = Company.create({
   name: "Pepe",
   website: "http://www.joseandrescatering.com/index.php/pepe/",
@@ -20,12 +26,14 @@ company1 = Company.create({
 With fresh-baked bread, long and thin like a flute, each sandwich is made fresh on the spot, and includes such flavorful selections as the butifarra “burger” (fresh pork, roasted peppers and alioli), pollo frito (fried chicken), escalivada (Spanish-style roasted vegetables), jamon Serrano y queso Manchego (the classic Spanish ham and cheese) and many more."
 }.merge(user: user1))
 
-truck1 = Truck.create({
-  name: "Pepe1",
-  lat:38.9019574,
-  long:-77.0411842,
-  address: "farragut square"
-}.merge(company: company1))
+company2 = Company.create({
+  name: "Peruvian Chicken",
+  website: "https://www.yelp.com/search?find_desc=peruvian+chicken&find_loc=Washington%2C+DC",
+  credit_card: false,
+  profile_img: "https://s3-media3.fl.yelpcdn.com/bphoto/udFD2GpcA7d4LVm2aHFV6w/90s.jpg",
+  phone_number: "(202) 33-2221",
+  bio: "Peruvian rotisserie chicken (pollo a la brasa) inspires all kinds of infighting. There's the question of what spices belong in the marinade, which chain cooks the juiciest bird, how the skin should be—and that's all before we get to the sauce. There is one essential truth about the dish: Everyone who loves it knows their favorite place to get it. And with Washington, DC's sizable Peruvian population, there is no shortage of excellent Peruvian pollerias to argue about."
+}.merge(user: user2))
 
 comment1 = Comment.create({
   name: "Sloan Holzman",
@@ -36,3 +44,8 @@ comment2 = Comment.create({
   name: "Zachary",
   body: "Great food."
 }.merge(company: company1))
+
+comment3 = Comment.create({
+  name: "Kim Jong",
+  body: "Get the green Sauce!"
+}.merge(company: company2))

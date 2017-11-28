@@ -3,8 +3,8 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @trucks = Truck.all
     @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
-      marker.lat truck.lat
-      marker.lng truck.long
+      marker.lat truck.latitude
+      marker.lng truck.longitude
       marker.infowindow Company.find(truck.company_id).name
     end
   end
@@ -23,8 +23,8 @@ class CompaniesController < ApplicationController
     @comments = @company.comments
     @trucks = @company.trucks
     @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
-      marker.lat truck.lat
-      marker.lng truck.long
+      marker.lat truck.latitude
+      marker.lng truck.longitude
       marker.infowindow Company.find(truck.company_id).name
     end
   end
@@ -53,6 +53,14 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def create_truck
+    company = Company.find(params[:id])
+    @truck = Truck.create!(truck_params.merge(company: company))
+    respond_to do |format|
+      format.js { render '/trucks/create_truck'}
+    end
+  end
+
   private
   def company_params
     params.require(:company).permit(:name, :website, :profile_img, :phone_number, :bio)
@@ -60,5 +68,9 @@ class CompaniesController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:name, :body)
+  end
+
+  def truck_params
+    params.require(:truck).permit(:name, :address)
   end
 end

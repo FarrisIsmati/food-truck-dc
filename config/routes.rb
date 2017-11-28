@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       post :create_comment
+      post :create_truck
     end
   end
 end

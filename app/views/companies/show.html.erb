@@ -51,14 +51,7 @@
     </div>
 
     <% if can? :update, @company %>
-      <div class="company-trucks-holder flex-center-column">
-      <h2>Trucks</h2>
-      <% @trucks.each do |truck| %>
-        <p>
-          <%= truck.name %>
-        </p>
-      <% end %>
-      </div>
+      <%= render :partial => "trucks/trucks", :locals => {:trucks => @trucks, :company => @company} %>
     <% end %>
 
     <div class="company-comments-holder flex-center-column">
