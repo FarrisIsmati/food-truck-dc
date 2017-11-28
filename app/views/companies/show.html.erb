@@ -73,16 +73,5 @@
   </div>
 </div>
 
-<script defer>
-  handlerShow = Gmaps.build('Google');
-  handlerShow.buildMap({ provider: {
-    center: {lat: 38.9072, lng: -77.0369},
-    zoom: 12,
-    minZoom: 12,
-    maxZoom: 16
-  }, internal: {id: 'map_show'}}, function(){
-    markers = handlerShow.addMarkers(<%=raw @hash.to_json %>);
-    handlerShow.bounds.extendWith(markers);
-    handlerShow.fitMapToBounds();
-  });
-</script>
+<%= content_tag :div, id: "map_show_data", class: "temp_information", data:@hash.to_json do %>
+<% end %>
