@@ -9,7 +9,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    #https://www.youtube.com/watch?v=Z5W-Y3aROVE UPLOAD IMG DATA
     @company = Company.create!(company_params.merge(user: current_user))
     redirect_to company_path(@company)
   end
@@ -27,10 +26,6 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
-    respond_to do |format|
-      format.html {redirect_to company_path(@company)}
-      format.js
-    end
   end
 
   def destroy
@@ -44,7 +39,7 @@ class CompaniesController < ApplicationController
     company = Company.find(params[:id])
     @comment = company.comments.create!(comment_params.merge(company: company))
     respond_to do |format|
-      format.js { render 'create_comment'}
+      format.js { render '/comments/create_comment'}
     end
   end
 

@@ -3,7 +3,7 @@
     map
   </div>
 
-  <div class="company-holder page-margin">
+  <div class="company-holder flex-column page-margin">
     <div class="company-holder-info-bio">
       <div class="company-info-holder">
         <h1>
@@ -20,13 +20,12 @@
 
         <div class="company-credit-card-holder">
           <h2>Credit Card:</h2>
-
           <% if @company.credit_card %>
-            <h2 class="letter-good">
+            <h2 class="positive-font">
               Yes
             </h2>
             <% else %>
-            <h2 class="letter-bad">
+            <h2 class="negative-font">
               No
             </h2>
           <% end %>
@@ -39,18 +38,20 @@
         <% end %>
         <% if can? :destroy, @company %>
             <h2>
-              <%= link_to "delete profile", company_path(@company), method: :delete %>
+              <%= link_to "delete profile", company_path(@company), method: :delete, :class => "negative-font" %>
             </h2>
         <% end %>
       </div>
 
-        <div class="company-bio-holder">
-          <%= render :partial => "bio-regular", :locals => {:company => @company} %>
-        </div>
+      <div class="company-bio-holder">
+        <p>
+          <%= @company.bio %>
+        </p>
+      </div>
     </div>
 
     <% if can? :update, @company %>
-      <div class="company-trucks-holder flex-center">
+      <div class="company-trucks-holder flex-center-column">
       <h2>Trucks</h2>
       <% @trucks.each do |truck| %>
         <p>
@@ -60,15 +61,14 @@
       </div>
     <% end %>
 
-    <div class="company-comments-holder flex-center">
+    <div class="company-comments-holder flex-center-column">
       <h2>
         <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse_comments" aria-expanded="false" aria-controls="collapseExample">
           Comments
         </button>
       </h2>
 
-      <%= render :partial => "comments", :locals => {:comments => @comments, :company => @company} %>
+      <%= render :partial => "comments/comments", :locals => {:comments => @comments, :company => @company} %>
     </div>
   </div>
-
 </div>

@@ -1,8 +1,8 @@
 <div class="collapse" id="collapse_comments">
-  <div class="company-comment-holder">
+  <div class="comment-holder flex-column">
     <div id="comment-holder">
       <% comments.each do |comment| %>
-        <div class="company-comment-holder">
+        <div class="comment-holder flex-column">
           <% if comment.name.empty? %>
               <p class="comment-name">anonymous</p>
           <% else %>
@@ -17,6 +17,7 @@
     </div>
 
     <% if cannot? :update, company %>
+      <!--AJAX create a new comment-->
       <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form'} do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %>

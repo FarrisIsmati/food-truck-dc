@@ -14,32 +14,10 @@
   }
 }
 
-.company-form{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
 .companies-map-holder{
 
 }
 
-//sidebar
-
-#trucks-title{
-  margin: 0;
-}
-
 .companies-sidebar-holder{
-  flex-direction: column;
-}
-
-.companies-create-btn{
-  margin-bottom: 5px;
-}
-
-.companies-truck-btn{
-  margin: 2px 0 2px 0;
+  text-align: center;
 }

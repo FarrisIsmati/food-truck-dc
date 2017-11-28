@@ -4,12 +4,10 @@
   grid-template-rows: 40% auto;
 }
 
-//Company Info
+//Company Info/Bio
 
 .company-holder{
   height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .company-holder-info-bio{
@@ -18,6 +16,10 @@
 }
 
 .company-info-holder{
+  margin: 4%;
+}
+
+.company-bio-holder{
   margin: 4%;
 }
 
@@ -35,41 +37,12 @@
   }
 }
 
-.company-bio-holder{
-  margin: 4%;
-}
-
 //Trucks
 .company-trucks-holder {
-  flex-direction: column;
 }
 
 //Comments
 
 .company-comments-holder{
   margin: 2% 30% 4% 30%;
-  flex-direction: column;
-}
-
-.company-comment-holder{
-  text-align: center;
-  flex-direction: column;
-  margin: 2% 0 2% 0;
-}
-
-.comment-name{
-  font-size: .9em;
-  font-weight: bold;
-}
-
-.comment-body{
-  font-size: .9em;
-}
-
-.comment-date{
-  font-size: .7em;
-}
-
-#company-comment-add-btn{
-  margin-top: 10px;
 }
