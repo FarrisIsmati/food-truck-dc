@@ -1,6 +1,6 @@
 <div class="company-show-holder ">
   <div class="map-holder">
-    map
+    <div id="map_show"></div>
   </div>
 
   <div class="company-holder flex-column page-margin">
@@ -72,3 +72,17 @@
     </div>
   </div>
 </div>
+
+<script defer>
+  handlerShow = Gmaps.build('Google');
+  handlerShow.buildMap({ provider: {
+    center: {lat: 38.9072, lng: -77.0369},
+    zoom: 12,
+    minZoom: 12,
+    maxZoom: 16
+  }, internal: {id: 'map_show'}}, function(){
+    markers = handlerShow.addMarkers(<%=raw @hash.to_json %>);
+    handlerShow.bounds.extendWith(markers);
+    handlerShow.fitMapToBounds();
+  });
+</script>

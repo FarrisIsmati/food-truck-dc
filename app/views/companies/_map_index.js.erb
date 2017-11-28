@@ -1,0 +1,8 @@
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {
+  center: {lat: 38.9072, lng: -77.0369},
+  zoom: 12,
+  minZoom: 12
+}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw hash.to_json %>);
+});

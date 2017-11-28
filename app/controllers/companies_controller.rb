@@ -3,8 +3,9 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @trucks = Truck.all
     @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
+      marker.lat truck.lat
+      marker.lng truck.long
+      marker.infowindow Company.find(truck.company_id).name
     end
   end
 
@@ -21,6 +22,11 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @comments = @company.comments
     @trucks = @company.trucks
+    @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
+      marker.lat truck.lat
+      marker.lng truck.long
+      marker.infowindow Company.find(truck.company_id).name
+    end
   end
 
   def edit
