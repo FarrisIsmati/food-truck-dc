@@ -21,7 +21,10 @@ With fresh-baked bread, long and thin like a flute, each sandwich is made fresh 
 }.merge(user: user1))
 
 truck1 = Truck.create({
-  name: "Pepe1"
+  name: "Pepe1",
+  lat:38.9019574,
+  long:-77.0411842,
+  address: "farragut square"
 }.merge(company: company1))
 
 comment1 = Comment.create({
