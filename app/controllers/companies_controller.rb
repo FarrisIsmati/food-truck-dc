@@ -1,7 +1,11 @@
 class CompaniesController < ApplicationController
-
   def index
     @companies = Company.all
+    @trucks = Truck.all
+    @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
   end
 
   def new

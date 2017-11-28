@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require popper
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require underscore
+//= require gmaps/google
 //= require_tree .
