@@ -18,6 +18,14 @@ class Company { // The name of this class doesn't matter, nor does the filepath
   }
 
   show() {
+    $('#add-truck-btn').click(function(){
+      if( $('#truck-create-form').hasClass('show') ) {
+        $(this).html('+')
+      } else {
+        $(this).html('-')
+      }
+    })
+
     let mapData = JSON.parse($('#map_show_data').attr('data'))
     let handler = Gmaps.build('Google');
     handler.buildMap({ provider: {
@@ -41,7 +49,5 @@ class Company { // The name of this class doesn't matter, nor does the filepath
     // Just make sure your method names don't conflict with action names
   }
 }
-
-
 
 Punchbox.on('Companies', Company);

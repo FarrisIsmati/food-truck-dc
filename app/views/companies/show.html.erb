@@ -51,7 +51,9 @@
     </div>
 
     <% if can? :update, @company %>
-      <%= render :partial => "trucks/trucks", :locals => {:trucks => @trucks, :company => @company} %>
+      <div class="flex-center-column trucks-holder">
+        <%= render :partial => "trucks/trucks", :locals => {:trucks => @trucks, :company => @company} %>
+      </div>
     <% end %>
 
     <div class="company-comments-holder flex-center-column">

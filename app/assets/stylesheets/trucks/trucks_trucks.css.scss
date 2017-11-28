@@ -1,0 +1,17 @@
+.trucks-holder{
+  margin-top: 5%;
+}
+
+.truck-holder{
+  margin: 0 10px 0 10px;
+
+  p{
+    font-size: .8em;
+  }
+}
+
+/* ID Target */
+#trucks-holder{
+  display: flex;
+  flex-direction: row;
+}
