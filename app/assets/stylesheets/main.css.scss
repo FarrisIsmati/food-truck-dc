@@ -1,6 +1,14 @@
-body, html{
+html,body{
   height: 100%;
+}
+
+html{
   font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  display: grid;
+  grid-template-rows: 7% auto;
 }
 
 p{
