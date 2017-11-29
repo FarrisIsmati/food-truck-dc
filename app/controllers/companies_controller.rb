@@ -55,8 +55,8 @@ class CompaniesController < ApplicationController
   end
 
   def create_truck
-    company = Company.find(params[:id])
-    @truck = Truck.create!(truck_params.merge(company: company))
+    @company = Company.find(params[:id])
+    @truck = Truck.create!(truck_params.merge(company: @company))
     @location = {
       :latitude => @truck.latitude,
       :longitude => @truck.longitude,

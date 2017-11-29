@@ -18,13 +18,15 @@
   <button id="add-truck-btn" class="btn btn-light" type="button" data-toggle="collapse" data-target="#truck-create-form" aria-expanded="false" aria-controls="collapseExample">Add</button>
 </div>
 
-<%= form_for Truck.new, :url => create_truck_company_path(company), remote: true, :html => {:class => 'company-form collapse', :id => 'truck-create-form'} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="collapse" id="truck-create-form">
+  <%= form_for Truck.new, :url => create_truck_company_path(company), remote: true, :html => {:class => 'company-form devise-form-border'} do |f| %>
+    <p>name</p>
+    <%= f.text_field :name %>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+    <p>address</p>
+    <%= f.text_field :address %>
 
-  <%= f.submit "submit", :class => "btn btn-light", data: {disable_with: "..."},:id => 'truck-add-btn' %>
-<% end %>
+    <%= f.submit "submit", :class => "btn btn-light", data: {disable_with: "..."},:id => 'truck-add-btn' %>
+  <% end %>
+</div>
 <% else %>
