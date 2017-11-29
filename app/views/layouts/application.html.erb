@@ -18,8 +18,11 @@
 
   <body <%= punchbox_attributes %>>
     <div class="header-holder">
-      <p class="notice notification"><%= notice %></p>
-      <p class="alert notification"><%= alert %></p>
+      
+      <div class="header-alert">
+        <p class="notice notification"><%= notice %></p>
+        <p class="alert notification"><%= alert %></p>
+      </div>
 
       <a class="header-title noselect" href="<%=companies_path%>">DC Food Trucks</a>
 
