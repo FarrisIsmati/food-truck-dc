@@ -7,6 +7,9 @@
       <p>
         <%= truck.address %>
       </p>
+      <p>
+        <%= link_to 'remove', company_truck_path(@company, truck), :method => :delete %>
+      </p>
     </div>
   <% end %>
   <button id="add-truck-btn" class="btn btn-light" type="button" data-toggle="collapse" data-target="#truck-create-form" aria-expanded="false" aria-controls="collapseExample">+</button>
