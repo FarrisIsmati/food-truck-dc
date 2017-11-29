@@ -49,3 +49,42 @@ comment3 = Comment.create({
   name: "Kim Jong",
   body: "Get the green Sauce!"
 }.merge(company: company2))
+
+
+
+
+company3 = Company.create({
+  name: "Kabob Truck",
+  website: "https://www.yelp.com/search?find_desc=peruvian+chicken&find_loc=Washington%2C+DC",
+  credit_card: false,
+  profile_img: "https://s3-media3.fl.yelpcdn.com/bphoto/udFD2GpcA7d4LVm2aHFV6w/90s.jpg",
+  phone_number: "(202) 33-2221",
+  bio: "Peruvian rotisserie chicken (pollo a la brasa) inspires all kinds of infighting. There's the question of what spices belong in the marinade, which chain cooks the juiciest bird, how the skin should be—and that's all before we get to the sauce. There is one essential truth about the dish: Everyone who loves it knows their favorite place to get it. And with Washington, DC's sizable Peruvian population, there is no shortage of excellent Peruvian pollerias to argue about."
+}.merge(user: user2))
+
+company4 = Company.create({
+  name: "Ginos Pizza",
+  website: "https://www.yelp.com/search?find_desc=peruvian+chicken&find_loc=Washington%2C+DC",
+  credit_card: false,
+  profile_img: "https://s3-media3.fl.yelpcdn.com/bphoto/udFD2GpcA7d4LVm2aHFV6w/90s.jpg",
+  phone_number: "(202) 33-2221",
+  bio: "Peruvian rotisserie chicken (pollo a la brasa) inspires all kinds of infighting. There's the question of what spices belong in the marinade, which chain cooks the juiciest bird, how the skin should be—and that's all before we get to the sauce. There is one essential truth about the dish: Everyone who loves it knows their favorite place to get it. And with Washington, DC's sizable Peruvian population, there is no shortage of excellent Peruvian pollerias to argue about."
+}.merge(user: user2))
+
+company5 = Company.create({
+  name: "Salami and Cheese",
+  website: "https://www.yelp.com/search?find_desc=peruvian+chicken&find_loc=Washington%2C+DC",
+  credit_card: false,
+  profile_img: "https://s3-media3.fl.yelpcdn.com/bphoto/udFD2GpcA7d4LVm2aHFV6w/90s.jpg",
+  phone_number: "(202) 33-2221",
+  bio: "Peruvian rotisserie chicken (pollo a la brasa) inspires all kinds of infighting. There's the question of what spices belong in the marinade, which chain cooks the juiciest bird, how the skin should be—and that's all before we get to the sauce. There is one essential truth about the dish: Everyone who loves it knows their favorite place to get it. And with Washington, DC's sizable Peruvian population, there is no shortage of excellent Peruvian pollerias to argue about."
+}.merge(user: user2))
+
+company6 = Company.create({
+  name: "Olive Truck",
+  website: "https://www.yelp.com/search?find_desc=peruvian+chicken&find_loc=Washington%2C+DC",
+  credit_card: false,
+  profile_img: "https://s3-media3.fl.yelpcdn.com/bphoto/udFD2GpcA7d4LVm2aHFV6w/90s.jpg",
+  phone_number: "(202) 33-2221",
+  bio: "Peruvian rotisserie chicken (pollo a la brasa) inspires all kinds of infighting. There's the question of what spices belong in the marinade, which chain cooks the juiciest bird, how the skin should be—and that's all before we get to the sauce. There is one essential truth about the dish: Everyone who loves it knows their favorite place to get it. And with Washington, DC's sizable Peruvian population, there is no shortage of excellent Peruvian pollerias to argue about."
+}.merge(user: user2))

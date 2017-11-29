@@ -1,23 +1,28 @@
+@import "main";
+
 .notification {
   position: absolute;
 }
 
 .header-holder{
-  margin: 1% 4% 1% 4%;
+  padding: 1% 4% 1% 4%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $black;
 
   p{
     margin-right: 4px;
+    color: white;
   }
 
   a{
+    color: white !important;
     margin-left: 4px;
   }
 }
 
 .header-title{
   font-size: 1.5em;
-  color: black !important;
+  color: white !important;
 }

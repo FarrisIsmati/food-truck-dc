@@ -1,6 +1,37 @@
+@import 'main';
+
 .devise-form-holder{
   flex-direction: column;
   text-align: center;
+
+  h2{
+    font-size: 3em;
+    font-weight: 700;
+  }
+
+  p{
+    font-size: 1.5em;
+  }
+}
+
+.devise-form-border{
+  border-radius: 10px;
+  border-width: 3px;
+  border-color: $black;
+  border-style: solid;
+  padding: 2%;
+}
+
+#error_explanation{
+  font-size: .6em;
+  color: red;
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 }
 
 #registration-sign-up-btn{

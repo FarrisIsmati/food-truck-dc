@@ -6,8 +6,10 @@
   <p>
 <% end %>
 
-<% companies.each do |company| %>
-  <h2 class="companies-truck-btn">
-      <%= link_to company.name, company_path(company) %>
-  </h2>
-<% end %>
+<div class="truck-list-holder">
+  <% companies.each do |company| %>
+    <h2 class="companies-truck-btn">
+        <%= link_to company.name, company_path(company) %>
+    </h2>
+  <% end %>
+</div>

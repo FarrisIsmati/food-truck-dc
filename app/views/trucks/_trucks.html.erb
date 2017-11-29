@@ -1,3 +1,4 @@
+<h2>Trucks</h2>
 <div id="trucks-holder">
   <% trucks.each do |truck| %>
     <div class="truck-holder flex-center-column">
@@ -12,6 +13,7 @@
       </p>
     </div>
   <% end %>
+
   <button id="add-truck-btn" class="btn btn-light" type="button" data-toggle="collapse" data-target="#truck-create-form" aria-expanded="false" aria-controls="collapseExample">+</button>
 </div>
 
@@ -26,3 +28,4 @@
 
   <%= f.submit "submit", :class => "btn btn-light", data: {disable_with: "..."},:id => 'truck-add-btn' %>
 <% end %>
+<% else %>

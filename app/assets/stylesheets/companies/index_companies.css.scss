@@ -1,3 +1,5 @@
+@import 'main';
+
 .companies-holder{
   height: 100%;
   display: grid;
@@ -14,10 +16,7 @@
   }
 }
 
-.companies-map-holder{
-
-}
-
-.companies-sidebar-holder{
-  text-align: center;
-}
+// .intro-holder{
+//   display: grid;
+//   grid-template-rows: auto 30%;
+// }

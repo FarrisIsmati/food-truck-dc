@@ -1,3 +1,28 @@
+@import 'main';
+
+.companies-sidebar-holder{
+  text-align: center;
+
+  a{
+
+  }
+
+  p{
+
+  }
+
+  h1{
+  }
+
+  h2{
+    font-size: .8em;
+  }
+}
+
+.truck-list-holder{
+  margin-top: 5%;
+}
+
 .companies-create-btn{
   margin-bottom: 5px;
 }
@@ -10,4 +35,12 @@
 
 #trucks-title{
   margin: 0;
+}
+
+#trucks-title::after {
+  content: " ";
+  display: block;
+  height: .2em;
+  background: black;
+  margin: 0 30%;
 }

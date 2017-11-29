@@ -15,7 +15,12 @@ class Map {
       center: {lat: 38.9072, lng: -77.0369},
       zoom: 12,
       minZoom: 12,
-      maxZoom: 16
+      maxZoom: 16,
+      zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
+      fullscreenControl: false,
+      streetViewControl: false
     }, internal: {id: this.mapId}}, function(){
       let markers = handler.addMarkers(mapData)
       handler.bounds.extendWith(markers)
