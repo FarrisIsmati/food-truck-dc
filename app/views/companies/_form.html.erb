@@ -1,18 +1,19 @@
-<%= f.label :name, autofocus: true%>
+
+<p>name</p>
 <%= f.text_field :name, autofocus: true %>
 
-<%= f.label :website %>
+<p>website</p>
 <%= f.text_field :website %>
 
-<%= f.label :phone_number %>
+<p>phone number</p>
 <%= f.text_field :phone_number %>
 
-<%= f.label :accept_creditcard %>
+<p>credit card?</p>
 <%= f.check_box :credit_card %>
 
-<%= f.label :bio %>
-<%= f.text_area :bio, :class => "textarea", :rows => "5", :cols => "50"%>
+<p>description</p>
+<%= f.text_area :bio, :class => "textarea", :rows => "4", :cols => "25"%>
 
-<div class="actions">
+<div id="truck-submit-btn" class="actions">
   <%= f.submit "Enter", :class => "btn btn-light" %>
 </div>

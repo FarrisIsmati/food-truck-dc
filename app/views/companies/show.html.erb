@@ -50,6 +50,8 @@
       </div>
     </div>
 
+    <div class="border-line"></div>
+
     <% if can? :update, @company %>
       <div class="flex-center-column trucks-holder">
         <%= render :partial => "trucks/trucks", :locals => {:trucks => @trucks, :company => @company} %>

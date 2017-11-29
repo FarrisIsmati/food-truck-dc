@@ -18,12 +18,11 @@
 
     <% if cannot? :update, company %>
       <!--AJAX create a new comment-->
-      <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form'} do |f| %>
-        <%= f.label :name %>
+      <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form devise-form-border'} do |f| %>
+        <p>name</p>
         <%= f.text_field :name %>
-
-        <%= f.label :body %>
-        <%= f.text_area :body, :class => "textarea", :rows => "3", :cols => "20"%>
+        <br/>
+        <%= f.text_area :body, :class => "textarea", :rows => "3", :cols => "25"%>
 
         <%= f.submit "Add ", :class => "btn btn-light", data: {disable_with: "..."},:id => 'company-comment-add-btn' %>
       <% end %>
