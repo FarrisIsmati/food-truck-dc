@@ -36,6 +36,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
+    redirect_to company_path(@company)
   end
 
   def destroy
@@ -56,6 +57,13 @@ class CompaniesController < ApplicationController
   def create_truck
     company = Company.find(params[:id])
     @truck = Truck.create!(truck_params.merge(company: company))
+    @location = {
+      :latitude => @truck.latitude,
+      :longitude => @truck.longitude,
+      :infowindow => Company.find(@truck.company_id).name
+    }
+    require 'json'
+    @json = @location.to_json
     respond_to do |format|
       format.js { render '/trucks/create_truck'}
     end

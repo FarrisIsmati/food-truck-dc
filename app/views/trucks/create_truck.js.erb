@@ -1,1 +1,8 @@
 $('#trucks-holder').append( "<p><%= @truck.name %></p><p><%= @truck.address %></p>" )
+
+
+truckArray = JSON.parse($('#map_show_data').attr('data'))
+currentTruck = JSON.parse('{\"lng\": <%=@location[:longitude]%>,\"lat\": <%=@location[:latitude]%>, \"infowindow\": \"<%=@location[:infowindow]%>\"}')
+newTruckArray = truckArray.concat(currentTruck)
+
+$('#map_show_data').attr('data', JSON.stringify(newTruckArray))

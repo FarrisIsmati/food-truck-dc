@@ -1,52 +1,26 @@
-class Company { // The name of this class doesn't matter, nor does the filepath
+class Company {
   constructor() {
-    // Code related to this class' setup.  Not required for Punchbox to run
   }
+
   controller() {
-    // Code within here will run on every action of the controller
   }
+
   index() {
-    let mapData = JSON.parse($('#map_index_data').attr('data'))
-    let handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {
-      center: {lat: 38.9072, lng: -77.0369},
-      zoom: 12,
-      minZoom: 12
-    }, internal: {id: 'map'}}, function(){
-      let markers = handler.addMarkers(mapData)
-    })
+    let map = new Map('map', '#map_index_data')
+    map.createMap('#map_index_data', 12, 12, 16)
   }
 
   show() {
-    $('#add-truck-btn').click(function(){
-      if( $('#truck-create-form').hasClass('show') ) {
-        $(this).html('+')
-      } else {
-        $(this).html('-')
-      }
-    })
+    addTruckBtn()
+    let map = new Map('map_show', '#map_index_data')
+    map.createMap('#map_show_data', 12, 12, 16)
 
-    let mapData = JSON.parse($('#map_show_data').attr('data'))
-    let handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {
-      center: {lat: 38.9072, lng: -77.0369},
-      zoom: 12,
-      minZoom: 12,
-      maxZoom: 16
-    }, internal: {id: 'map_show'}}, function(){
-      let markers = handler.addMarkers(mapData)
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
+    $('#truck-create-form').on('ajax:success', function() {
+      map.createMap('#map_show_data', 12, 12, 16)
     })
   }
 
-  account() {
-    // You aren't constrained to using REST actions either
-    // This works with any action defined in your Rails controller
-  }
   sharedMethod() {
-    // You can have any other methods in here and reference them from other methods in this class!
-    // Just make sure your method names don't conflict with action names
   }
 }
 
