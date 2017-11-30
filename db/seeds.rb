@@ -67,5 +67,5 @@ comment2 = Comment.create({
 
 comment3 = Comment.create({
   name: "Andrew Whitley",
-  body: "Best chicken I've ever had. Roll Tide"
+  body: "Best pizza I've ever had. Roll Tide"
 }.merge(company: company4))
