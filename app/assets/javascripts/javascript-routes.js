@@ -31,4 +31,4 @@ class Company {
   }
 }
 
-Punchbox.on('Companies', Company);
+// Punchbox.on('Companies', Company);
