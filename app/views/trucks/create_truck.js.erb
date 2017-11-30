@@ -1,9 +1,8 @@
 $('#trucks-holder').append( "<div class='truck-holder flex-center-column'><h2><%= @truck.name %></h2><p><%= @truck.address %></p><p><a data-method='delete' href='<%= company_truck_path(@company, @truck)%>'>remove</a></p></div>" )
 
-
 truckArray = JSON.parse($('#map_show_data').attr('data'))
 currentTruck = JSON.parse('{\"lng\": <%=@location[:longitude]%>,\"lat\": <%=@location[:latitude]%>, \"infowindow\": \"<%=@location[:infowindow]%>\", \"company\": \"<%= @company.id %>\", \"truck\": \"<%=@truck.id %>\" }')
-console.log(currentTruck)
+
 newTruckArray = truckArray.concat(currentTruck)
 
 $('#map_show_data').attr('data', JSON.stringify(newTruckArray))
