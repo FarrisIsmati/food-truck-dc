@@ -2,10 +2,15 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
     @trucks = Truck.all
-    @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
-      marker.lat truck.latitude
-      marker.lng truck.longitude
-      marker.infowindow Company.find(truck.company_id).name
+    @hash = []
+    @trucks.each do |truck|
+      @hash.push({
+        "lat" => truck.latitude,
+        "lng" => truck.longitude,
+        "infowindow" => Company.find(truck.company_id).name,
+        "company" => Company.find(truck.company_id).id,
+        "truck" => truck[:id]
+      })
     end
   end
 
@@ -22,10 +27,15 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @comments = @company.comments
     @trucks = @company.trucks
-    @hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
-      marker.lat truck.latitude
-      marker.lng truck.longitude
-      marker.infowindow Company.find(truck.company_id).name
+    @hash = []
+    @trucks.each do |truck|
+      @hash.push({
+        "lat" => truck.latitude,
+        "lng" => truck.longitude,
+        "infowindow" => Company.find(truck.company_id).name,
+        "company" => Company.find(truck.company_id).id,
+        "truck" => truck[:id]
+      })
     end
   end
 
@@ -57,6 +67,7 @@ class CompaniesController < ApplicationController
   def create_truck
     @company = Company.find(params[:id])
     @truck = Truck.create!(truck_params.merge(company: @company))
+
     @location = {
       :latitude => @truck.latitude,
       :longitude => @truck.longitude,

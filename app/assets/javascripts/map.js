@@ -45,20 +45,26 @@ class Map {
     }
     for (let key in lookUp){
       if (lookUp[key].length > 1){
-        let companies = `<p>Trucks</p>`
+        let companies = `<h1 class="infowindow-title">Trucks</h1>`
         for (let i = 0; i < lookUp[key].length; i++){
-          companies += `<a href="">${lookUp[key][i].infowindow}</a>`
+          let company = lookUp[key][i].company
+          companies += `<a class="infowindow" href="/companies/${company}">${lookUp[key][i].infowindow}</a>`
         }
         returnArray.push({
           lat: lookUp[key][0].lat,
           lng: lookUp[key][0].lng,
-          infowindow: companies
+          infowindow: '<div class="flex-center-column">' + companies + '</div>'
         })
       } else {
-        returnArray.push(lookUp[key][0])
+        let company = lookUp[key][0].company
+        returnArray.push({
+          lat: lookUp[key][0].lat,
+          lng: lookUp[key][0].lng,
+          infowindow: `<a class="infowindow" href="/companies/${company}">${lookUp[key][0].infowindow}</a>`
+        })
       }
     }
-    console.log(returnArray)
+    //console.log(returnArray)
     return returnArray
   }
 }

@@ -20,6 +20,16 @@
   }
 }
 
+.infowindow{
+  color: $black !important;
+  font-weight: 200 !important;
+}
+
+.infowindow-title{
+  color: $black !important;
+  font-size: 2em;
+}
+
 /* ID Target */
 #truck-add-btn{
   margin-top: 4%;
