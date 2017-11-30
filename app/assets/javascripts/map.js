@@ -11,6 +11,7 @@ class Map {
     let createMarkers = this.createMarkers
     let handler = this.handler
     let mapData = JSON.parse($(data).attr('data'))
+    console.log(mapData)
     handler.buildMap({ provider: {
       center: {lat: 38.9072, lng: -77.0369},
       zoom: 12,
