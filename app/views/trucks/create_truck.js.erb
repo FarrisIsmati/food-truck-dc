@@ -2,7 +2,7 @@ $('#trucks-holder').append( "<div class='truck-holder flex-center-column'><h2><%
 
 
 truckArray = JSON.parse($('#map_show_data').attr('data'))
-currentTruck = JSON.parse('{\"lng\": <%=@location[:longitude]%>,\"lat\": <%=@location[:latitude]%>, \"infowindow\": \"<%=@location[:infowindow]%>\"}')
+currentTruck = JSON.parse('{\"lng\": <%=@location[:longitude]%>,\"lat\": <%=@location[:latitude]%>, \"infowindow\": \"<%=@location[:infowindow]%>\", \"company\": \"<%=@company[:id]%>\", \"truck\": \"<%=@truck[:id]%>\" }')
 newTruckArray = truckArray.concat(currentTruck)
 
 $('#map_show_data').attr('data', JSON.stringify(newTruckArray))
