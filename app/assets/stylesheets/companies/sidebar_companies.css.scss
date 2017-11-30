@@ -9,6 +9,10 @@
   }
 }
 
+.my-company{
+  color: $red !important;
+}
+
 .truck-list-holder{
   margin-top: 5%;
 }
@@ -18,6 +22,10 @@
 }
 
 .companies-truck-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 2px 0 2px 0;
 }
 
