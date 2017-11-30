@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.all.order('name ASC')
     @trucks = Truck.all
     @hash = []
     @trucks.each do |truck|
