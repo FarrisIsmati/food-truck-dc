@@ -14,8 +14,10 @@
 //= require rails-ujs
 //= require popper
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require underscore
-//= require gmaps/google
-//= require punchbox
 //= require_tree .
+
+
+// require bootstrap-sprockets
+// require underscore
+// require gmaps/google
+// require punchbox
