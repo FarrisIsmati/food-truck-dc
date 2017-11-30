@@ -12,6 +12,8 @@ class Map {
     let createMarkers = this.createMarkers
     let handler = this.handler
     let mapData = JSON.parse($(data).attr('data'))
+
+    //Build Map
     handler.buildMap({ provider: {
       center: {lat: 38.9072, lng: -77.0369},
       zoom: 12,
@@ -23,16 +25,20 @@ class Map {
       fullscreenControl: false,
       streetViewControl: false
     }, internal: {id: this.mapId}}, function(){
+
+      //Create Markers
       let markers = handler.addMarkers(clusterMarkers(mapData))
       handler.bounds.extendWith(markers)
       handler.fitMapToBounds()
     })
   }
 
+  //Cluters Markers in Info Window if they have the same Lat/Lng coordinates
   clusterMarkers(mapData){
-    console.log(mapData)
     let returnArray = []
     let lookUp = {}
+
+    //Create array of trucks and cluster together the ones with the same lat lng coordinates
     for (let i = 0; i < mapData.length; i++){
       let lat = mapData[i].lat
       let lng = mapData[i].lng
@@ -43,6 +49,8 @@ class Map {
         lookUp[coordKey] = [mapData[i]]
       }
     }
+
+    //Set up info window
     for (let key in lookUp){
       if (lookUp[key].length > 1){
         let companies = `<h1 class="infowindow-title">Trucks</h1>`
@@ -64,7 +72,7 @@ class Map {
         })
       }
     }
-    //console.log(returnArray)
+
     return returnArray
   }
 }
