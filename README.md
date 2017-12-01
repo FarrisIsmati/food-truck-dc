@@ -7,14 +7,10 @@ I plan on remaking this application and fully developing it to it's full potenti
 To see the working example: https://dc-food-trucks.herokuapp.com/companies
 
 # Technologies Used
-Ruby on Rails
-JQuery
+Ruby on Rails, JQuery
 
 # Gems
-Google Maps API
-Punchbox
-Geocoder
+Google Maps API, Punchbox, Geocoder
 
 # Authentication 
-Devise
-Cancan
+Devise, Cancan
