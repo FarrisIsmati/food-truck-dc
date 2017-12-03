@@ -3,4 +3,5 @@
 <% else %>
   $('#comment-holder').append( "<p class='comment-name'><%= @comment.name %></p>" )
 <% end %>
+
 $('#comment-holder').append( "<p class='comment-body'><%= @comment.body %></p><p class='comment-date'><%= @comment.created_at %></p>" )

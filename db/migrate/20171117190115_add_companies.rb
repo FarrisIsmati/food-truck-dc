@@ -6,7 +6,7 @@ class AddCompanies < ActiveRecord::Migration[5.1]
       t.boolean :credit_card
       t.string :profile_img
       t.integer :phone_number
-      
+
       t.timestamps
     end
   end

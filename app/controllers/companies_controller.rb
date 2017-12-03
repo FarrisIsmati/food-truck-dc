@@ -2,16 +2,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all.order('name ASC')
     @trucks = Truck.all
-    @hash = []
-    @trucks.each do |truck|
-      @hash.push({
-        "lat" => truck.latitude,
-        "lng" => truck.longitude,
-        "infowindow" => Company.find(truck.company_id).name,
-        "company" => Company.find(truck.company_id).id,
-        "truck" => truck[:id]
-      })
-    end
+    @hash = Truck.format_all_markers(@trucks)
   end
 
   def new
@@ -27,16 +18,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @comments = @company.comments
     @trucks = @company.trucks
-    @hash = []
-    @trucks.each do |truck|
-      @hash.push({
-        "lat" => truck.latitude,
-        "lng" => truck.longitude,
-        "infowindow" => Company.find(truck.company_id).name,
-        "company" => Company.find(truck.company_id).id,
-        "truck" => truck[:id]
-      })
-    end
+    @hash = Truck.format_all_markers(@trucks)
   end
 
   def edit
@@ -56,11 +38,21 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
+  #I couldnt figure out the rails way of accessing different controllers in forms to perform ajax
+  #Requests so I did this which I'm not proud of
+
   def create_comment
     company = Company.find(params[:id])
-    @comment = company.comments.create!(comment_params.merge(company: company))
+    @comment = company.comments.new(comment_params.merge(company: company))
     respond_to do |format|
-      format.js { render '/comments/create_comment'}
+      if @comment.save
+        format.html { redirect_to company_url, notice: 'Comment was successfully created.' }
+        format.json { render json: @comment, status: :created, location: [company, @comment]}
+        format.js   { render '/comments/create_comment'}
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -17,7 +17,6 @@
     </div>
 
     <% if cannot? :update, company %>
-      <!--AJAX create a new comment-->
       <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form devise-form-border'} do |f| %>
         <p>name</p>
         <%= f.text_field :name %>
