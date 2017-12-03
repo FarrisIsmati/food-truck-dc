@@ -1,0 +1,108 @@
+ERD: https://www.draw.io/?state=%7B%22ids%22:%5B%221lW327dyhc-ArN8aqm1AOLeR0TrrxXGww%22%5D,%22action%22:%22open%22,%22userId%22:%22104006774622607886858%22%7D#G1lW327dyhc-ArN8aqm1AOLeR0TrrxXGww
+
+class Google Maps
+
+constructor 
+	mapParams = {JSON map data} 
+
+function initializeMap
+	Set up map
+
+function displayTruck
+	Get instance of truck (if verified geolocation)
+	Display truck
+
+function getCompanyTrucks(company)
+	Get all trucks of a specific company
+	Display trucks
+
+function getAllTrucks
+	Trucks = Get all active users trucks
+	Loop through 
+		displayTruck(truck)
+	
+function setProfileImage
+	Get current profile image
+	Set profile image to JSON map params on truck instance
+
+class Twitter
+
+constructor 
+	Daily tweets = {}
+	Handle = string
+
+function getDailyTweets
+	Get daily tweets
+	Store daily tweets to DB
+
+function getTwitterFeed
+	Get full feed
+	Display feed
+
+
+
+
+
+Ruby Controllers 
+
+class Company
+
+Def index Root To
+	MVP
+Main page showing landing map and all companies listed below	
+
+Def show
+	MVP
+	Shows all company data and map of only that company
+
+	*If is your company*
+	Can see the number of trucks in your fleet
+	SILVER
+	Can manipulate the map and truck locations
+
+Def edit
+	MVP
+*Only accessible if you are logged in and is your company*
+	Menu giving you all options to edit the company
+
+Def destroy
+	MVP
+	*Destroys your company*
+	You have no company but are offered the opportunity to make a new one
+
+Def new
+	MVP
+	Create a new company (Can only have one company)
+	
+	Platinum
+	Make company verified by me (via email alert)
+
+class User
+
+Def new (Registration)
+	Gold
+	Option to login via twitter
+	If company exists (Handles match)
+	Then add existing company to User’s company
+
+	Platinum
+	Needs to be email verified before can create truck if not twitter auth
+  
+Truck logic
+If company has only one truck:
+Option to auto update truck location based on tweet (geolocation/scrub) BOOLEAN
+On new tweet
+Verify if tweet has a geolocation
+Send Geolocation on JSON string to database 
+Else if tweet can be address scrubbed
+Search address via google maps api 
+Send Geolocation on JSON string to database
+Option to manually update truck location with google maps
+On manual updated send Geolocation JSON string to database (OVERRIDES TWEET GEOLOCATION IF UPDATED VIA TWITTER)
+
+Else (company has multiple trucks)
+Trucks must be manually updated with google maps
+(FUTURE GOAL: scrub for multiple locations and allow auto updated)
+
+
+
