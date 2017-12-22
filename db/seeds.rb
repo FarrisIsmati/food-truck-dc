@@ -25,6 +25,7 @@ company1 = Company.create({
 
 With fresh-baked bread, long and thin like a flute, each sandwich is made fresh on the spot, and includes such flavorful selections as the butifarra “burger” (fresh pork, roasted peppers and alioli), pollo frito (fried chicken), escalivada (Spanish-style roasted vegetables), jamon Serrano y queso Manchego (the classic Spanish ham and cheese) and many more."
 }.merge(user: user1))
+# Why not just add a key `:user` on the main object instead of using merge to accomplish the same?
 
 company2 = Company.create({
   name: "Peruvian Brothers",

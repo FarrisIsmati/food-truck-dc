@@ -26,3 +26,4 @@ class Ability
 
   end
 end
+# Great job using CanCanCan for authorizations
