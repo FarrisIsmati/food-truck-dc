@@ -1,4 +1,4 @@
-[Live Demo](https://dc-food-trucks.herokuapp.com/companies)
+# [Live Demo](https://dc-food-trucks.herokuapp.com/companies)
 
 # Intro
 
