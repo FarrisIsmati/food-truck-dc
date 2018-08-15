@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all.order('name ASC')
+    # If you want the order to always be by name, you can set a default order on the model itself
     @trucks = Truck.all
     @hash = Truck.format_all_markers(@trucks)
   end
@@ -10,7 +11,9 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.create!(company_params.merge(user: current_user))
+    @company = Company.create(company_params.merge(user: current_user))
+    # No bang (`!`) operators outside of seed data. If validation fails, you don't want it to throw
+    # a server error, you want to set up some logic to handle it (using if...else statements)
     redirect_to company_path(@company)
   end
 
@@ -18,6 +21,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @comments = @company.comments
     @trucks = @company.trucks
+    # Not sure if one relational query warrants assigning it to a new instance variable
+    # (comments, trucks)
     @hash = Truck.format_all_markers(@trucks)
   end
 

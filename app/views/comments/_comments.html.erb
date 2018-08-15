@@ -18,12 +18,15 @@
 
     <% if cannot? :update, company %>
       <%= form_for Comment.new, :url => create_comment_company_path(company), remote: true, :html => {:class => 'company-form devise-form-border'} do |f| %>
+        <!-- This looks correct for setting up an ajax request to the create_comment controller action
+        (although you could just use your standard resource route POST comment_company_path) -->
         <p>name</p>
         <%= f.text_field :name %>
         <br/>
         <%= f.text_area :body, :class => "textarea", :rows => "3", :cols => "25"%>
 
         <%= f.submit "Add ", :class => "btn btn-light", data: {disable_with: "..."},:id => 'company-comment-add-btn' %>
+        <!-- Are you sure the disable_with option above is needed? remote: true should stop form submission for you. -->
       <% end %>
     <% end %>
   </div>

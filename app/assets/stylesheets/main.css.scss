@@ -5,9 +5,13 @@ $blue: #1565c0;
 $grey: #999999;
 $black: #252525;
 
+// Nice use of SCSS variables
+
 .negative-font {
   color: $red !important;
 }
+// Be careful using !important. Sometimes it's appropriate, but often indicates you haven't
+// made you CSS classes modular enough.
 
 html,body{
   height: 100%;
@@ -66,6 +70,8 @@ h2{
         -ms-user-select: none;
             user-select: none;
 }
+// You could also use a CSS postprocesser like AutoPrefix to automatically have all the
+// browser-specific prefixes added for you: https://css-tricks.com/autoprefixer/
 
 .temp_information{
   display: none;

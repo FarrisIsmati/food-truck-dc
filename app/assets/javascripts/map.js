@@ -32,3 +32,4 @@ class Map {
     })
   }
 }
+// Great job configuring Google Maps
